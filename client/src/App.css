@@ -1,0 +1,174 @@
+/* ─── App Layout Styles ─── */
+
+.app {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* ─── Ambient Background Orbs ─── */
+.bg-orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-orb-1 {
+  width: 500px;
+  height: 500px;
+  background: #6c5ce7;
+  top: -150px;
+  left: -100px;
+  animation: orbFloat 20s ease-in-out infinite;
+}
+
+.bg-orb-2 {
+  width: 400px;
+  height: 400px;
+  background: #a29bfe;
+  bottom: -100px;
+  right: -80px;
+  animation: orbFloat 25s ease-in-out infinite reverse;
+}
+
+.bg-orb-3 {
+  width: 300px;
+  height: 300px;
+  background: #fd79a8;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: orbFloat 18s ease-in-out infinite 3s;
+}
+
+@keyframes orbFloat {
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(30px, -20px);
+  }
+
+  50% {
+    transform: translate(-20px, 30px);
+  }
+
+  75% {
+    transform: translate(20px, 20px);
+  }
+}
+
+/* ─── Header ─── */
+.app-header {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 3rem 1.5rem 1.5rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.logo-icon {
+  font-size: 2.4rem;
+  animation: logoBounce 2s ease-in-out infinite;
+}
+
+@keyframes logoBounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.logo h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.5px;
+}
+
+.accent {
+  background: linear-gradient(135deg, #6c5ce7, #a29bfe, #fd79a8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.tagline {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+
+/* ─── Main Content ─── */
+.app-main {
+  position: relative;
+  z-index: 1;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem 3rem;
+}
+
+.boards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+/* ─── Footer ─── */
+.app-footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 0.85rem;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  .logo h1 {
+    font-size: 2rem;
+  }
+
+  .boards-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .app-main {
+    padding: 1rem 1rem 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-header {
+    padding: 2rem 1rem 1rem;
+  }
+
+  .logo h1 {
+    font-size: 1.75rem;
+  }
+
+  .tagline {
+    font-size: 0.9rem;
+  }
+}
